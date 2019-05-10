@@ -24,14 +24,12 @@ class Items extends Component {
         }
     }
 
-    handleToggle = (index) => {
-        this.props.selectItem(index);
-    }
-
     renderItem = (item, index) => {
-        const {deleteItem, doneItem} = this.props;
+        const {deleteItem, doneItem, selectItem} = this.props;
         return (
-            <ListItem key={item.createdAt} role={undefined} dense button onClick={() => {this.handleToggle(index)}}
+            <ListItem key={item.createdAt} role={undefined} dense button onClick={() => {
+                selectItem(index)
+            }}
                       style={{
                           borderLeft: `4px solid ${priorityColors[item.priority]}`
                       }}>
@@ -42,14 +40,17 @@ class Items extends Component {
                 />
                 <ListItemText primary={item.title} secondary={React.createElement(TimeAgo, {date: item.createdAt})}/>
                 <ListItemSecondaryAction>
-                    <IconButton aria-label="Delete" onClick={() => {
-                        deleteItem(index);
-                    }}>
+                    <IconButton aria-label="Delete"
+                                onClick={() => {
+                                    deleteItem(index);
+                                }}>
                         <DeleteIcon/>
                     </IconButton>
-                    <IconButton aria-label="Done" onClick={() => {
-                        doneItem(index);
-                    }}>
+                    <IconButton aria-label="Done"
+                                disabled={item.done}
+                                onClick={() => {
+                                    doneItem(index);
+                                }}>
                         <DoneIcon/>
                     </IconButton>
                 </ListItemSecondaryAction>
@@ -89,9 +90,12 @@ Items.propTypes = {
 
 Items.defaultProps = {
     data: [],
-    deleteItem: () => {},
-    doneItem: () => {},
-    selectItem: () => {},
+    deleteItem: () => {
+    },
+    doneItem: () => {
+    },
+    selectItem: () => {
+    },
 }
 
 export default withStyles(styles)(Items);

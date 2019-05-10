@@ -50,11 +50,11 @@ class AddItem extends Component {
                     padding: '0px 20px'
                 }}>
                     <Grid item xs>
-                        <Tooltip title="Add Todo">
-                            <IconButton>
-                                <AddIcon className={classes.block} color="inherit"/>
-                            </IconButton>
-                        </Tooltip>
+                        {/*<Tooltip title="Add Todo">*/}
+                            {/*<IconButton>*/}
+                                {/*<AddIcon className={classes.block} color="inherit"/>*/}
+                            {/*</IconButton>*/}
+                        {/*</Tooltip>*/}
                     </Grid>
                     <Grid item xs className="my-other-step">
                         <List component="nav" >

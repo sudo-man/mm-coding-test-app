@@ -69,6 +69,12 @@ class App extends Component {
         store.set(TODO_ITEMS_KEY, todoItems);
     }
 
+    doneItem = (index) => {
+        let todoItems = store.get(TODO_ITEMS_KEY);
+        todoItems[index].done = true;
+        store.set(TODO_ITEMS_KEY, todoItems);
+    }
+
     componentDidMount() {
         setInterval(
             () => this.setState({now: new Date()}),
@@ -86,7 +92,7 @@ class App extends Component {
                         continuous
                         run={run}
                         showSkipButton
-                        steps={steps}/>
+                        steps={steps} />
                     <Typography color="textSecondary" align="center" style={{
                         position: 'absolute',
                         bottom: 10,
@@ -129,7 +135,7 @@ class App extends Component {
                             className="tour-step-todo-list">
                                 <Items data={store.get('todoItems')}
                                        deleteItem={(index) => { this.deleteItem(index) }}
-                                       //doneItem={this.doneItem}
+                                       doneItem={index => this.doneItem(index)}
                                        selectItem={index => this.selectItem(index)}
                                 />
                             </div>
