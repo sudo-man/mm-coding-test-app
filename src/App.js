@@ -39,12 +39,20 @@ class App extends Component {
             run: true,
             steps: [
                 {
-                    target: '.my-first-step',
-                    content: 'This is my awesome feature!',
+                    target: '.tour-step-priority',
+                    content: 'Select your todo priority.',
                 },
                 {
-                    target: '.my-other-step',
-                    content: 'This another awesome feature!',
+                    target: '.tour-step-todo-input',
+                    content: 'Type your todo in here',
+                },
+                {
+                    target: '.tour-step-add-button',
+                    content: 'Click add button to add new todo list',
+                },
+                {
+                    target: '.tour-step-todo-list',
+                    content: 'Your todo item list will show up over here!',
                 }
             ]
         }
@@ -78,7 +86,7 @@ class App extends Component {
                         bottom: 10,
                         left: 10,
                         color: '#FFF'
-                    }} className="my-first-step">
+                    }}>
                         Auther: Alan Elias
                     </Typography>
                     <Grid className={classes.root}>
@@ -107,11 +115,12 @@ class App extends Component {
 
                         <Paper className={classes.paper}>
                             <AppBar className={classes.bar} position="static" color="default" elevation={0}>
-                                <AddItem store={store} />
+                                <AddItem store={store}/>
                             </AppBar>
                             <div style={{
                                 padding: '10px 10px'
-                            }}>
+                            }}
+                            className="tour-step-todo-list">
                                 <Items data={store.get('todoItems')}
                                        deleteItem={this.deleteItem}
                                        doneItem={this.doneItem}

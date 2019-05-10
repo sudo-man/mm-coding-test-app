@@ -74,7 +74,7 @@ class AddItem extends Component {
             <Toolbar>
                 <Grid container spacing={16} alignItems="center">
                     <Grid item className="my-other-step">
-                        <List component="nav">
+                        <List component="nav" className="tour-step-priority">
                             <ListItem
                                 button
                                 aria-haspopup="true"
@@ -107,7 +107,7 @@ class AddItem extends Component {
                         </Menu>
                     </Grid>
 
-                    <Grid item xs>
+                    <Grid item xs className="tour-step-todo-input">
                         <TextField
                             fullWidth
                             placeholder="Type your TODO in here"
@@ -126,7 +126,7 @@ class AddItem extends Component {
                         />
                     </Grid>
                     <Grid item>
-                        <Tooltip title="Add Todo">
+                        <Tooltip title="Add Todo" className="tour-step-add-button">
                             <IconButton onClick={this.addItem} disabled={isBusy}>
                                 <AddIcon className={classes.block} color="inherit"/>
                             </IconButton>
