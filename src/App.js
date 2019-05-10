@@ -60,7 +60,8 @@ class App extends Component {
 
     deleteItem = (index) => {
         let todoItems = store.get(TODO_ITEMS_KEY);
-        store.set(TODO_ITEMS_KEY, todoItems.splice(1, index));
+        todoItems.splice(index, 1);
+        store.set(TODO_ITEMS_KEY, todoItems);
     }
 
     selectItem = (index) => {
