@@ -11,6 +11,7 @@ import IconButton from '@material-ui/core/IconButton';
 import {withStyles} from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import {priorityColors} from '../contracts/priority';
+import TimeAgo from 'react-timeago';
 
 const styles = theme => ({});
 
@@ -39,7 +40,7 @@ class Items extends Component {
                     tabIndex={-1}
                     // disableRipple
                 />
-                <ListItemText primary={item.title} secondary={'3 min ago'}/>
+                <ListItemText primary={item.title} secondary={React.createElement(TimeAgo, {date: item.createdAt})}/>
                 <ListItemSecondaryAction>
                     <IconButton aria-label="Delete" onClick={() => {
                         deleteItem(index);
