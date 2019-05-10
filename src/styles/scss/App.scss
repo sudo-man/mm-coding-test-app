@@ -1,0 +1,36 @@
+.App {
+  text-align: center;
+  -webkit-background-size: cover;
+  background-size: cover;
+  animation: App-Background 20s infinite;
+}
+
+.App-content {
+  background-color: rgba(40, 44, 52, 0.5);
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  opacity: .9;
+  padding: 50px 10px 10px;
+
+}
+
+@keyframes App-Background {
+  0% {
+    background-image: url("../../images/creating-a-programming-to-do-list.jpg");
+  }
+  25% {
+    background-image: url("../../images/creating-a-programming-to-do-list.jpg");
+  }
+  50% {
+    background-image: url("../../images/golf-swing-follow-through.jpg");
+  }
+  75% {
+    background-image: url("../../images/golf-swing-follow-through.jpg");
+  }
+  100% {
+    background-image: url("../../images/creating-a-programming-to-do-list.jpg");
+  }
+}
