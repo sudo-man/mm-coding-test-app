@@ -1,1 +1,14 @@
-mm-coding-test-app
+#Installation
+
+```
+npm install
+```
+
+run:
+```
+npm start
+```
+
+
+
+
