@@ -63,6 +63,12 @@ class App extends Component {
         store.set(TODO_ITEMS_KEY, todoItems.splice(1, index));
     }
 
+    selectItem = (index) => {
+        let todoItems = store.get(TODO_ITEMS_KEY);
+        todoItems[index].active = ! todoItems[index].active;
+        store.set(TODO_ITEMS_KEY, todoItems);
+    }
+
     componentDidMount() {
         setInterval(
             () => this.setState({now: new Date()}),
@@ -122,8 +128,9 @@ class App extends Component {
                             }}
                             className="tour-step-todo-list">
                                 <Items data={store.get('todoItems')}
-                                       deleteItem={this.deleteItem}
-                                       doneItem={this.doneItem}
+                                       deleteItem={(index) => { this.deleteItem(index) }}
+                                       //doneItem={this.doneItem}
+                                       selectItem={index => this.selectItem(index)}
                                 />
                             </div>
                             <AppBar className={classes.bar} position="sticky" color="default" elevation={0}>

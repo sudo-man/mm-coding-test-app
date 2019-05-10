@@ -31,7 +31,7 @@ class Items extends Component {
     renderItem = (item, index) => {
         const {deleteItem, doneItem} = this.props;
         return (
-            <ListItem key={item.createdAt} role={undefined} dense button onClick={this.handleToggle(index)}
+            <ListItem key={item.createdAt} role={undefined} dense button onClick={() => {this.handleToggle(index)}}
                       style={{
                           borderLeft: `4px solid ${priorityColors[item.priority]}`
                       }}>
